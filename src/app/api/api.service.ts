@@ -94,7 +94,7 @@ the mock API */
   public doMockCall(): Promise<SendDict2ResponseObj> {
     const scenario = this.NEAR_FUTURE_CALL ? 'near' : 'far';
     this.NEAR_FUTURE_CALL = !this.NEAR_FUTURE_CALL;
-    return fetch(`../../assets/data/demo-senario-${scenario}.json`).then((response) =>
+    return fetch(`assets/data/demo-senario-${scenario}.json`).then((response) =>
       response.json().then((val) => {
         const data = this.modifyMockResponseValues(new SendDict2ResponseObj(val), scenario);
         return data;
