@@ -37,34 +37,34 @@ export class ResultsPanelComponent {
     {
       range: `0-10,000 ${environment.waterFlowUnits}`,
       text: 'Low',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
     {
       range: `10,000-25,000 ${environment.waterFlowUnits}`,
       text: 'Medium',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
     {
       range: `25,000+ ${environment.waterFlowUnits}`,
       text: 'High',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
   ];
   public thresholdLegendWaterFlowWithDifference: ThresholdConfig[] = [
     {
       range: '',
       text: 'Decrease in flowrate',
-      icon: '../../../../../../../assets/icons/outlet-decrease.svg',
+      icon: 'assets/icons/outlet-decrease.svg',
     },
     {
       range: '',
       text: 'Increase in flowrate',
-      icon: '../../../../../../../assets/icons/outlet-increase.svg',
+      icon: 'assets/icons/outlet-increase.svg',
     },
     {
       range: '',
       text: 'No change',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
   ];
 
@@ -72,56 +72,56 @@ export class ResultsPanelComponent {
     {
       range: `0-1000 ${environment.excessWaterUnits}`,
       text: 'Low',
-      icon: '../../../../../../../assets/icons/centroid.svg',
+      icon: 'assets/icons/centroid.svg',
     },
     {
       range: `1001-2000 ${environment.excessWaterUnits}`,
       text: 'Medium',
-      icon: '../../../../../../../assets/icons/centroid.svg',
+      icon: 'assets/icons/centroid.svg',
     },
     {
       range: `2000+${environment.excessWaterUnits}`,
       text: 'High',
-      icon: '../../../../../../../assets/icons/centroid.svg',
+      icon: 'assets/icons/centroid.svg',
     },
   ];
   public thresholdLegendExcessWaterWithDifference: ThresholdConfig[] = [
     {
       range: '',
       text: 'Decrease in volume',
-      icon: '../../../../../../../assets/icons/centroid-decrease.svg',
+      icon: 'assets/icons/centroid-decrease.svg',
     },
     {
       range: '',
       text: 'Increase in volume',
-      icon: '../../../../../../../assets/icons/centroid-increase.svg',
+      icon: 'assets/icons/centroid-increase.svg',
     },
     {
       range: '',
       text: 'No change',
-      icon: '../../../../../../../assets/icons/centroid.svg',
+      icon: 'assets/icons/centroid.svg',
     },
   ];
   public thresholdLegendWaterQuality: ThresholdConfig[] = [
     {
       range: `-0.05-0.00 ${environment.waterQualityUnits}`,
       text: 'Low',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
     {
       range: `0.00-0.05 ${environment.waterQualityUnits}`,
       text: 'Medium-Low',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
     {
       range: `0.05-0.10 ${environment.waterQualityUnits}`,
       text: 'Medium-High',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
     {
       range: `0.10-0.15 ${environment.waterQualityUnits}`,
       text: 'High',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
   ];
 
@@ -129,21 +129,24 @@ export class ResultsPanelComponent {
     {
       range: '',
       text: 'Decrease in concentration',
-      icon: '../../../../../../../assets/icons/outlet-decrease.svg',
+      icon: 'assets/icons/outlet-decrease.svg',
     },
     {
       range: '',
       text: 'Increase in concentration',
-      icon: '../../../../../../../assets/icons/outlet-increase.svg',
+      icon: 'assets/icons/outlet-increase.svg',
     },
     {
       range: '',
       text: 'No change',
-      icon: '../../../../../../../assets/icons/outlet.svg',
+      icon: 'assets/icons/outlet.svg',
     },
   ];
 
-  constructor(private mapService: MapService, private scenarioService: ScenarioService) {
+  constructor(
+    private mapService: MapService,
+    private scenarioService: ScenarioService,
+  ) {
     this.mapService.resultsLayerSourceObservable.subscribe((resultType: ResultType) => {
       this.rtLabel = resultType;
       this.updateLegend(this.rtLabel);
