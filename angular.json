@@ -69,7 +69,8 @@
                   "maximumError": "80kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/ventura-vdr/"
             },
             "development": {
               "buildOptimizer": false,
