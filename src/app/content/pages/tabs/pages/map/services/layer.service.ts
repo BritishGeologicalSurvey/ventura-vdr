@@ -87,7 +87,7 @@ export class LayerService {
                       ${changeLabel.finalLabel}
                     </div>
                   </div>
-                  <img class="h-7 !w-7" src="../../../../../../assets/icons/${changeLabel.changeIcon}"/>
+                  <img class="h-7 !w-7" src="assets/icons/${changeLabel.changeIcon}"/>
                 </div>
               `,
               iconSize: [80, 80],
@@ -101,7 +101,7 @@ export class LayerService {
             html: `
               <div class="flex flex-col h-20 w-20 items-center">
                 <span class="bg-white rounded p-1">${label}</span>
-                <img class="h-7 !w-7" src="../../../../../../assets/icons/centroid.svg"/>
+                <img class="h-7 !w-7" src="assets/icons/centroid.svg"/>
               </div>
             `,
             iconSize: [80, 80],
@@ -141,7 +141,7 @@ export class LayerService {
                       ${changeLabel.finalLabel}
                     </div>
                   </div>
-                  <img class="h-7 !w-7" src="../../../../../../assets/icons/${changeLabel.changeIcon}" />
+                  <img class="h-7 !w-7" src="assets/icons/${changeLabel.changeIcon}" />
                 </div>
               `,
               iconSize: [80, 80],
@@ -162,7 +162,7 @@ export class LayerService {
             html: `
               <div class="flex flex-col h-20 w-20 items-center bg-transparent font-mono">
                 <span class="bg-white rounded p-1 font-aspekta-semibold text-center">${label}</span>
-                <img class="h-7 !w-7" src="../../../../../../assets/icons/outlet.svg" />
+                <img class="h-7 !w-7" src="assets/icons/outlet.svg" />
               </div>
             `,
             iconSize: [80, 80],
@@ -191,7 +191,7 @@ export class LayerService {
           icon: new L.DivIcon({
             html: `
               <div class="flex flex-col h-20 w-20 items-center">
-                <img class="h-7 !w-7" src="../../../../../../assets/icons/wwtp.svg" />
+                <img class="h-7 !w-7" src="assets/icons/wwtp.svg" />
               </div>
             `,
             iconSize: [80, 80],
