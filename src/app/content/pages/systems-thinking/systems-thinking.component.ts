@@ -66,7 +66,7 @@ export class SystemsThinkingComponent implements OnInit {
         title: 'Impact of water neutrality design options',
         text: [
           'Water neutrality design options can reduce water consumption, improve water availability, mimic natural conditions and enhance biodiversity. For instance, water neutrality can be achieved thorough following ways to mitigate some of the negative impacts of urban developments on water management systems: the reduction in consumer demand for water, the increase in the amount of permeable land, the increase in collected and treated water',
-          'In the VDR, attenuation volume is another parameter that users can modify. It refers to the system\'s capacity to store and slow down the stormwater runoff. Effective collection and treatment of water increases the system\'s capacity to control the water volume, decreasing excess water.',
+          'In the VDR, attenuation volume is another parameter that users can modify. It refers to the system&#39;s capacity to store and slow down the stormwater runoff. Effective collection and treatment of water increases the system&#39;s capacity to control the water volume, decreasing excess water.',
         ],
         imgUrl: 'sys-thinking-6.jpg',
       },
@@ -92,6 +92,6 @@ export class SystemsThinkingComponent implements OnInit {
   }
 
   public static transformImgUrl(slug: string): string {
-    return `../../../../assets/img/systems-thinking/${slug}`;
+    return `assets/img/systems-thinking/${slug}`;
   }
 }
