@@ -1,0 +1,40 @@
+@import '../scss/colours';
+
+mat-snack-bar-container {
+  /* stylelint-disable */
+  .mdc-snackbar__surface {
+    /* stylelint-enable */
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  &.snackbar {
+    height: 48px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  }
+
+  &.snackbar-positive {
+    background: $bgs-secondary-grass;
+
+    .positive {
+      color: $bgs-primary-white;
+    }
+  }
+
+  &.snackbar-negative {
+    background: $bgs-secondary-haze;
+
+    .negative {
+      color: $bgs-primary-white;
+    }
+  }
+
+  &.snackbar-information {
+    background: $bgs-primary-stone;
+
+    .information {
+      color: $bgs-primary-white;
+    }
+  }
+}

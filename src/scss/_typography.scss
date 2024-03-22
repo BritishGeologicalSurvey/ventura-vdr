@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+
+@font-face {
+  font-family: Aspekta;
+  src: url('/assets/fonts/Aspekta-400.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aspekta SemiBold';
+  src: url('/assets/fonts/Aspekta-500.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aspekta Bold';
+  src: url('/assets/fonts/Aspekta-700.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aspekta Light';
+  src: url('/assets/fonts/Aspekta-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Aspekta',
+  $headline-1: mat.define-typography-level(48px, 48px, 600),
+  $subtitle-1: mat.define-typography-level(25px, 30px, 600),
+  $body-1: mat.define-typography-level(14px, 20px, 400),
+  $body-2: mat.define-typography-level(14px, 20px, 400),
+  $button: mat.define-typography-level(14px, 20px, 600, 'Aspekta', normal),
+);

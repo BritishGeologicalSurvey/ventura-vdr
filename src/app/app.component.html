@@ -1,0 +1,6 @@
+<app-header></app-header>
+<app-loading></app-loading>
+<main *ngIf="loadApp">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+<app-warning-banner></app-warning-banner>

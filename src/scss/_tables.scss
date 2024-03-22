@@ -1,0 +1,80 @@
+/* stylelint-disable selector-class-pattern */
+
+@import '../scss/colours';
+
+table {
+  font-family: monospace !important;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.mat-mdc-header-cell {
+  font-family: monospace !important;
+  text-align: center !important;
+  justify-content: center;
+
+  &:first-of-type {
+    text-align: left !important;
+    justify-content: flex-start;
+  }
+}
+
+// .mat-sort-header-container {
+//   flex-direction: column !important;
+//   justify-content: center !important;
+// }
+
+.mat-mdc-cell {
+  font-family: monospace !important;
+  text-align: left !important;
+  justify-content: center;
+
+  &:first-of-type {
+    text-align: left !important;
+    justify-content: flex-start;
+  }
+}
+
+.mat-mdc-footer-cell {
+  font-family: monospace !important;
+  text-align: center !important;
+}
+
+.column-title {
+  text-align: center !important;
+
+  &-left {
+    text-align: left !important;
+  }
+}
+
+.row-title {
+  text-align: center !important;
+
+  &-left {
+    text-align: left !important;
+  }
+}
+
+app-outlets {
+  table {
+    .mat-column-catchment {
+      width: 10%;
+      padding: 1rem 0.5rem;
+      font-size: 13px;
+    }
+
+    .mat-column-today,
+    .mat-column-nearFuture,
+    .mat-column-farFuture {
+      flex: none;
+      width: 30%;
+      font-size: 13px;
+    }
+
+    .mat-column-today,
+    .mat-column-farFuture {
+      background-color: rgb(241 245 249);
+    }
+  }
+}

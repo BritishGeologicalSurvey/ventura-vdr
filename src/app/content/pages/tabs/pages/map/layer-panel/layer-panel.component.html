@@ -1,0 +1,52 @@
+<mat-accordion class="layer-controls" displayMode="flat">
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Static Layers
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-chip-listbox class="pb-2 mat-mdc-chip-set-stacked" aria-label="subcatchment visualisation selection" selectable
+      multiple>
+      <mat-chip-option *ngFor="let layer of staticLayerList; let i = index;" color="primary"
+        [matTooltip]="layer.description" matTooltipShowDelay="500" matTooltipPosition="left"
+        (selectionChange)="onStaticChange($event)" [selected]="i === 0">
+        {{ layer.name }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Reference layers
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-chip-listbox class="pb-2 mat-mdc-chip-set-stacked" aria-label="subcatchment visualisation selection">
+      <mat-chip-option *ngFor="let layer of referenceLayerList" color="primary"
+        (selectionChange)="onReferenceChange($event)" [matTooltip]="layer.description" matTooltipPosition="left"
+        matTooltipShowDelay="500">
+        {{ layer.name }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+    <a mat-button (click)="openLearnAboutItemDialog()" class="learn-more-button !my-2">
+      <mat-icon class="learn-more-button-icon" fontIcon="info"></mat-icon>
+      Learn more
+    </a>
+    <div *ngIf="legendList.length" class="pb-2">
+      <mat-divider></mat-divider>
+      <p class="!mt-2 !mb-2 layer-panel-subtitle text-bgs-primary-earth">Legend</p>
+      <table class="table p-0 space-y-6 text-sm border-separate">
+        <tbody>
+          <tr class="bg-white" *ngFor="let legend of legendList">
+            <td class="p-0">
+              <div class="flex align-items-center">
+                <div class="w-10 h-6 border rounded-full opacity-50 border-bgs-mono-grey-4"
+                  [style.background-color]="legend.swatchColour"></div>
+              </div>
+            </td>
+            <td class="px-1">{{ legend.text }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

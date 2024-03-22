@@ -1,0 +1,17 @@
+<div class="flex flex-col">
+  <ng-container *ngIf="currentStage !== ''">
+    <div class="w-full border-b-2 stepper border-bgs-primary-stone"
+      *ngIf="vdrComponent.showProgressBar($scenario | async)">
+      <app-progress [steps]="progressSteps"></app-progress>
+    </div>
+  </ng-container>
+  <div class="grid grid-cols-8 gap-4 px-3 pt-2"
+    [ngClass]="currentStage  === '' ? 'h-[calc(100vh-90px)]' : 'h-[calc(100vh-165px)]'">
+    <div class="flex items-start justify-center w-full h-full col-span-2 overflow-auto nice-scrollbar scenario">
+      <app-scenario-panel class="w-full"></app-scenario-panel>
+    </div>
+    <div class="flex justify-center w-full col-span-6 tabs">
+      <app-tabs class="w-full" [data]="data"></app-tabs>
+    </div>
+  </div>
+</div>

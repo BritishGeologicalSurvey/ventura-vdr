@@ -1,0 +1,58 @@
+@import '../scss/colours';
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+}
+
+.leaflet-container {
+  font-family: Aspekta, sans-serif !important;
+}
+
+.leaflet-container:focus-visible {
+  outline: none; // disable rectangle outline when clicking on leaflet map data
+}
+
+.vdr-popup .leaflet-popup-content-wrapper {
+  background: $bgs-primary-earth;
+  color: $bgs-primary-white;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 10px;
+}
+
+.vdr-popup .leaflet-popup-tip {
+  background: $bgs-primary-earth;
+  border: none;
+  box-shadow: none;
+}
+
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  border: 0 !important;
+}
+
+.leaflet-control-container .leaflet-control {
+  font-family: Aspekta, sans-serif;
+  font-size: 12px;
+
+  .leaflet-control-layers {
+    border: none;
+  }
+
+  input {
+    accent-color: $bgs-primary-earth;
+  }
+}
+
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+  width: 146px;
+}
+
+// labels for showing outlet value change between scenario and baseline
+.leaflet-container .change-label-panel {
+  line-height: 0.7 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: white !important;
+}

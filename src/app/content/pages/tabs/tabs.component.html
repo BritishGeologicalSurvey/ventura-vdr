@@ -1,0 +1,8 @@
+<div class="relative flex flex-col w-full h-full bg-bgs-primary-white">
+  <div class="absolute z-10 self-center transform -translate-x-1/2 top-2 left-1/2"></div>
+  <mat-tab-group mat-stretch-tabs="false" animationDuration="0ms" mat-align-tabs="center"
+    class="relative z-0 w-full h-full view">
+    <mat-tab label="Map View"><app-map [data]="data"></app-map></mat-tab>
+    <mat-tab label="Table View"><app-table [data]="data"></app-table></mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,45 @@
+@import '../scss/colours';
+
+.mat-button-toggle-group {
+  height: 45px;
+}
+
+.mdc-button {
+  /* stylelint-disable-next-line */
+  .mdc-button__label {
+    font-weight: 400;
+  }
+}
+
+.learn-more-button {
+  &.mat-mdc-button {
+    margin: 3px 0;
+    display: flex;
+    justify-content: flex-start;
+    height: 20px !important;
+    font-size: 11px;
+    padding: 0 !important;
+
+    /* stylelint-disable-next-line */
+    &.mdc-button__label {
+      color: #ad9c70;
+    }
+  }
+
+  .mat-mdc-button-touch-target {
+    height: 20px !important;
+  }
+}
+
+.learn-more-button-icon {
+  color: $bgs-secondary-slate !important;
+  font-size: 18px !important;
+  margin-right: 3px !important;
+}
+
+/* stylelint-disable-next-line */
+.mat-mdc-standard-chip.mdc-evolution-chip--with-primary-graphic .mdc-evolution-chip__action--primary {
+  width: 100% !important;
+  display: flex;
+  justify-content: flex-start;
+}

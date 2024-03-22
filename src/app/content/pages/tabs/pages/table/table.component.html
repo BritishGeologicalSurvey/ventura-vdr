@@ -1,0 +1,53 @@
+<div *ngIf="currentStage === ''">
+  <mat-accordion>
+    <mat-expansion-panel expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Outlets
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-outlets></app-outlets>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Catchment groups
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-catchments-group></app-catchments-group>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Greater Manchester
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-summary></app-summary>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Subcatchments
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-catchments></app-catchments>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div *ngIf="currentStage === 'select'">
+  <app-catchments></app-catchments>
+</div>
+
+<div *ngIf="currentStage === 'review'">
+  <app-summary></app-summary>
+</div>

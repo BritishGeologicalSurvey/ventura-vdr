@@ -1,0 +1,91 @@
+<div class="relative">
+  <div class="absolute z-30 text-xs text-gray-400 bottom-1 right-1"><a
+      href="https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-gGneMriFtW4"
+      target="_blank">Background image provided by Unsplash</a></div>
+  <div
+    class="background bg-cover bg-[url('/assets/img/manchester.jpg')] w-screen h-screen xl:h-[calc(100vh-80px)] relative z-0">
+  </div>
+  <div
+    class="absolute top-0 left-0 z-10 overlay bg-gradient-to-br from-black to-gray-700 opacity-90 w-screen h-screen xl:h-[calc(100vh-80px)]">
+  </div>
+  <div class="absolute top-0 left-0 z-20 grid h-screen xl:h-[calc(100vh-80px)] grid-cols-2 p-8">
+    <div class="flex flex-col justify-center p-8 h-100">
+      <div class="w-full tracking-wide text">
+        <p class="text-7xl text-white font-aspekta-bold !mb-1">VENTURA</p>
+        <p class="mt-4 text-4xl text-white font-aspekta-semibold">Virtual Decision Room</p>
+        <hr class="my-2 bg-gray-200 border-2">
+        <p class="!mt-6 text-lg text-white font-aspekta-light">
+          The Virtual Decision Room (VDR) will enable regional government, regulators and water utility companies to
+          collaboratively plan and evaluate the sustainability of urban growth planning scenarios and its effect on
+          catchment scale water flow and water quality in current, near future and far future scenarios. The integration
+          of systems thinking into the VDR will enable users to reflect on the complexity and dynamics of governance and
+          management structures to support urban water neutrality.
+        </p>
+        <p class="!mt-6 text-lg text-white font-aspekta-light">The shared vision for VENTURA in GM developed by the
+          partners is to explore how to be water neutral by 2050 despite population growth, changes in climate and user
+          behaviour. Water neutrality is defined as the avoidance of net gain in water flow and nutrient loads (e.g
+          nitrates and phosphates) reaching water bodies.</p>
+        <div
+          class="items-center justify-start w-full h-auto px-4 py-4 text-xs text-white rounded-md bg-bgs-secondary-slate">
+          Project Partners: <a href="https://www.imperial.ac.uk/" target="_blank">Imperial College London</a>,
+          <a href="https://www.bgs.ac.uk/" target="_blank">British Geological Survey</a>,
+          <a href="https://www.ucl.ac.uk/" target="_blank">Univesity College London</a>, <a
+            href="https://www.enfield.gov.uk/" target="_blank">Enfield
+            Council</a>, <a href="https://www.gov.uk/government/organisations/environment-agency"
+            target="_blank">Environment Agency</a>, <a href="https://www.greatermanchester-ca.gov.uk/"
+            target="_blank">Greater
+            Manchester Combined Authority</a> | Funded by EPSRC Grant <a
+            href="https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/V042084/1" target="_blank">EP/V042084/1</a>
+          |
+          Project dates: 01/09/2021 - 30/04/2024
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-end p-8 h-100">
+      <div class="flex flex-col items-end self-center">
+        <div class="w-4/5 h-auto mb-4 rounded-md box">
+          <div class="p-6 tracking-wide">
+            <p class="text-xl text-white font-aspekta-semibold">
+              Systems thinking
+            </p>
+            <p class="mt-4 text-white font-aspekta-light">
+              To achieve water neutrality, collaborative decision-making is required. Our systems thinking perspective
+              explores the complexity and dynamics in governance and organisational decision-making in Manchester and
+              wider environments. Systems thinking insights are visualised in a causal loop diagram, which is a
+              qualitative model of governance factors influencing water neutrality.
+            </p>
+          </div>
+          <a [id]="ROUTES.SYSTEMS_THINKING.segments" mat-flat-button color="primary"
+            [routerLink]="ROUTES.SYSTEMS_THINKING | route"
+            class="w-full !bg-bgs-primary-stone !font-aspekta-semibold !h-12 rounded-b-md !rounded-t-none">
+            Open the systems thinking based causal loop diagram
+          </a>
+        </div>
+        <div class="w-4/5 h-auto rounded-md box">
+          <div class="p-6 tracking-wide">
+            <p class="text-xl text-white font-aspekta-semibold">
+              Virtual Decision Room Tool
+            </p>
+            <p class="mt-4 text-white font-aspekta-light">
+              This VDR tool allows you to view Business As Usual (BAU) scenarios and
+              explore how changes to <span class="font-aspekta-semibold">new developments</span> and <span
+                class="font-aspekta-semibold">retrofitting</span> will affect the
+              water network in
+              Manchester and its
+              various subcatchments.
+            </p>
+          </div>
+          <a id="open-vdr" mat-flat-button color="primary" [routerLink]="ROUTES.VDR | route"
+            class="w-full !bg-bgs-primary-stone !rounded-none !font-aspekta-semibold !h-12">
+            Open VDR Tool
+          </a>
+          <a mat-flat-button [routerLink]="ROUTES.SETTINGS| route"
+            class="settings-btn w-full font-aspekta-semibold !text-white !rounded-none !h-12">
+            Settings
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

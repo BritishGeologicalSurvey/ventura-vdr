@@ -1,0 +1,107 @@
+<div class="w-full px-2 mt-8">
+  <mat-form-field class="scenario-select" appearance="outline" class="w-full" subscriptSizing="dynamic">
+    <mat-label>Selected intervention scenario:</mat-label>
+    <mat-select class="p-0" [(ngModel)]="selectedScenarioOption" (selectionChange)="scenarioSelectionChange($event)">
+      <mat-option *ngFor="let option of scenarios" [value]="option['scenarioId']">
+        {{ option['scenarioName'] }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="button" (click)="handleLearnMore()" [disabled]="!scenarioHasDescription()"
+    class="inline-flex items-center px-0 py-2 text-xs text-gray-600 border border-transparent rounded-lg font-aspekta gap-x-2 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none ">
+    <svg xmlns="http://www.w3.org/2000/svg" class="inline icon icon-tabler icon-tabler-info-circle" width="20"
+      height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7391bf" fill="none" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+      <path d="M12 9h.01" />
+      <path d="M11 12h1v4h1" />
+    </svg>
+    Learn more about this scenario
+
+  </button>
+
+  <button id="create-intervention" mat-flat-button color="accent" class="!text-white w-full !rounded-none"
+    (click)="handleCreateScenario()">
+    <mat-icon class="text-white">add</mat-icon>
+    Create intervention scenario
+  </button>
+  <mat-divider></mat-divider>
+  <div class="flex flex-col my-2">
+    <p class="text-base text-bgs-primary-earth font-aspekta-semibold !mt-2">
+      CC & Pop. Scenarios
+    </p>
+    <mat-button-toggle-group class="flex w-full mb-2" name="resultTimePeriodSelection" [value]="rtp.TODAY">
+      <mat-button-toggle [value]="rtp.TODAY" (change)="changeResultTimePeriod($event.value)"
+        matTooltip="Baseline scenario using 30/11/2011 to 30/01/2012 with current population and CC settings"
+        matTooltipShowDelay="500">
+        Baseline
+      </mat-button-toggle>
+      <mat-button-toggle [value]="rtp.NEAR_FUTURE" (change)="changeResultTimePeriod($event.value)">
+        Baseline + Intervention
+      </mat-button-toggle>
+      <mat-button-toggle [value]="rtp.FAR_FUTURE" (change)="changeResultTimePeriod($event.value)"
+        matTooltip="Increase in population by 30% and CC by 50%" matTooltipShowDelay="500">
+        Intervention + Future
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <a mat-button (click)="openLearnAboutItemDialog('time')" class="learn-more-button">
+      <mat-icon class="learn-more-button-icon" fontIcon="info"></mat-icon>
+      Learn more
+    </a>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="py-2">
+    <p class="!mt-2 text-base text-bgs-primary-earth font-aspekta-semibold !mb-0">
+      Model Results View
+    </p>
+    <mat-selection-list #modelLayers [multiple]="false" [(ngModel)]="selectedModelResultOptions"
+      (ngModelChange)="selectedModelResultChange()">
+      <mat-list-option class="result-type-list" *ngFor="let result of modelResults" [value]="result.type"
+        [matTooltip]="result.description" matTooltipShowDelay="500" togglePosition="before">
+        <span class="font-aspekta-bold">
+          {{ result.type }}
+        </span>
+        <div class="text-xs">
+          {{ result.summary }}
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+    <a mat-button (click)="openLearnAboutItemDialog('model')" class="learn-more-button">
+      <mat-icon class="learn-more-button-icon" fontIcon="info"></mat-icon>
+      Learn more
+    </a>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="selectedScenarioOption !== 'business-as-usual'" class="my-3">
+    <p class="text-lg text-bgs-primary-earth !mt-2">
+      Compare Scenarios:
+    </p>
+
+    <mat-chip-listbox class="mat-mdc-chip-set-stacked" #modelResultComparison [multiple]="false"
+      [(ngModel)]="selectedComparisonOption">
+      <mat-chip-option *ngFor="let option of compareResults" color="primary"
+        (selectionChange)="selectedComparisonChange($event)" [matTooltip]="option.description"
+        matTooltipShowDelay="500">
+        {{ option.type }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+
+
+    <p class="text-base text-bgs-primary-earth !mt-2">
+      Display Values:
+    </p>
+    <mat-chip-listbox (change)="selectedDisplayValueChange($event)" #displayResultComparison [multiple]="false"
+      [disabled]="!modelResultComparison.value">
+      <mat-chip-option [value]="1" selected color="accent"
+        matTooltip="If change is less than 0.001%, result is labelled as No Change." matTooltipShowDelay="500">As
+        percentage</mat-chip-option>
+      <mat-chip-option [value]="0" color="accent">As difference</mat-chip-option>
+    </mat-chip-listbox>
+
+    <a mat-button (click)="openLearnAboutItemDialog('comparison')" class="learn-more-button">
+      <mat-icon class="learn-more-button-icon" fontIcon="info"></mat-icon>
+      Learn more
+    </a>
+  </div>
+</div>

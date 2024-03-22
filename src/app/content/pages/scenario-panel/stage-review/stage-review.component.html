@@ -1,0 +1,33 @@
+<div class="p-2 mt-2 border-t-8 border-primary-earth">
+  <p class="text-xl text-bgs-primary-earth font-aspekta-semibold">
+    Review selected catchment(s)
+  </p>
+
+  <p class="mt-4 text-base">
+    You can <span class="font-aspekta-semibold">add and edit additional subcatchments</span> to your intervention, or
+    you can
+    <span class="font-aspekta-semibold">
+      run the model
+    </span>
+    with the selected subcatchments.
+  </p>
+
+  <p class="mt-2 text-base">
+    The model generation might take a few minutes to run. You will be notified when it finishes.
+  </p>
+
+  <div class="flex items-center justify-start w-auto h-4 p-4 text-white rounded-sm bg-bgs-primary-stone">
+    {{ noOfCatchments }} subcatchments selected
+  </div>
+  <div class="flex w-full mt-6">
+    <button mat-stroked-button class="!rounded-none w-full" (click)="cancelNewScenario()">
+      Cancel
+    </button>
+    <button mat-stroked-button class="!rounded-none w-full" (click)="handleAddMore()">
+      Add more
+    </button>
+    <button id="view-results" mat-flat-button color="primary" class="!rounded-none w-full" (click)="handleReview()">
+      View Results
+    </button>
+  </div>
+</div>

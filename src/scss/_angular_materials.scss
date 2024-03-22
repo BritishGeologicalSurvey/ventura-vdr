@@ -1,0 +1,194 @@
+@use '@angular/material' as mat;
+@import 'scroll';
+
+/*
+  Generated here:
+  http://mcg.mbitson.com/#!?mcgpalette0=%236979f7&themename=mcgtheme
+  from base #6979f7
+*/
+/* stylelint-disable */
+$_primary_pallete: (
+  50: #daf1ff,
+  100: #b7d9eb,
+  200: #97bcd2,
+  300: #75a0ba,
+  400: #5b8ba7,
+  500: #3f7795,
+  600: #326983,
+  700: #23556d,
+  800: #154358,
+  900: #002e40,
+  A100: #b9bed3,
+  A200: #8c94b6,
+  A400: #425086,
+  A700: #122662,
+  contrast: (
+    50: #0000,
+    100: #0000,
+    200: #0000,
+    300: #0000,
+    400: #0000,
+    500: #ffff,
+    600: #ffff,
+    700: #ffff,
+    800: #ffff,
+    900: #ffff,
+    A100: #0000,
+    A200: #0000,
+    A400: #0000,
+    A700: #0000,
+  ),
+);
+
+$_accent_pallete: (
+  50: #fdfaed,
+  100: #faf2d2,
+  200: #f7ebb8,
+  300: #f3e3a0,
+  400: #efdd91,
+  500: #ebd884,
+  600: #dac67d,
+  700: #c4b175,
+  800: #ad9c70,
+  900: #837969,
+  A100: #fff5e2,
+  A200: #fbf0de,
+  A400: #ccc1af,
+  A700: #6e6555,
+  contrast: (
+    50: #0000,
+    100: #0000,
+    200: #0000,
+    300: #0000,
+    400: #0000,
+    500: #ffff,
+    600: #ffff,
+    700: #ffff,
+    800: #ffff,
+    900: #ffff,
+    A100: #0000,
+    A200: #0000,
+    A400: #0000,
+    A700: #0000,
+  ),
+);
+
+$_warn_pallete: (
+  /* stylelint-disable-line */ 50: #fdfaed,
+  100: #faf2d2,
+  200: #f7ebb8,
+  300: #f3e3a0,
+  400: #efdd91,
+  500: #ebd884,
+  600: #dac67d,
+  700: #c4b175,
+  800: #ad9c70,
+  900: #f03d3e,
+  A100: #fff5e2,
+  A200: #fbf0de,
+  A400: #ccc1af,
+  A700: #6e6555,
+  contrast: (
+    50: #0000,
+    100: #0000,
+    200: #0000,
+    300: #0000,
+    400: #0000,
+    500: #ffff,
+    600: #ffff,
+    700: #ffff,
+    800: #ffff,
+    900: #ffff,
+    A100: #0000,
+    A200: #0000,
+    A400: #0000,
+    A700: #0000,
+  )
+);
+/* stylelint-enable */
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+
+/* stylelint-disable */
+@include mat.all-component-typographies();
+@include mat.core();
+/* stylelint-enable */
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat.define-palette($_primary_pallete, 900);
+$app-accent: mat.define-palette($_accent_pallete, 800);
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat.define-palette($_warn_pallete, 900);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($app-theme);
+@include mat.all-component-typographies($custom-typography);
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin vdr-theme($theme) {
+  // Extract the palettes you need from the theme definition.
+  $primary: map-get($theme, primary); /* stylelint-disable-line */
+  $accent: map-get($theme, accent); /* stylelint-disable-line */
+  $warn: map-get($theme, warn); /* stylelint-disable-line */
+
+  body.vdr-theme {
+    // Start Buttons
+    & .mat-mdc-button,
+    & .mat-mdc-unelevated-button,
+    & .mat-mdc-outlined-button,
+    & .mat-mdc-raised-button,
+    & .mat-mdc-fab,
+    & .mat-mdc-mini-fab {
+      margin: 2px;
+
+      &.alt {
+        border: 2px solid currentColor; /* stylelint-disable-line */
+        background-color: #ffff;
+
+        &:not([disabled]) {
+          &.mat-primary {
+            color: mat.get-color-from-palette($primary);
+          }
+
+          &.mat-accent {
+            color: mat.get-color-from-palette($accent);
+          }
+
+          &.mat-warn {
+            color: mat.get-color-from-palette($warn);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Include theme styles for your custom components.
+@include vdr-theme($app-theme);

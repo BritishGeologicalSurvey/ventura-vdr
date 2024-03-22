@@ -1,0 +1,27 @@
+<div class="w-full h-1 bg-bgs-primary-earth"></div>
+<h1 class="!text-2xl !font-aspekta-semibold text-bgs-primary-earth text-center !mt-4">
+  Create new scenario
+</h1>
+<div mat-dialog-content>
+  <form *ngIf="formVisible" [formGroup]="form">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Scenario name</mat-label>
+      <input matInput placeholder="Placeholder" id="scenarioName" name="scenarioName" formControlName="scenarioName"
+        required>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Placeholder" rows="7" id="description" name="description"
+        formControlName="description" required></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-stroked-button class="!rounded-none" (click)="handleCancel()">
+    Cancel
+  </button>
+  <button mat-flat-button color="primary" cdkFocusInitial class="!rounded-none" [mat-dialog-close]="form"
+    [disabled]="!form.valid">
+    Create
+  </button>
+</div>

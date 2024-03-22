@@ -1,0 +1,10 @@
+<div id="map" class="w-full h-full">
+  <div *ngIf="showTemporalLayersPanel" id="layers-panel"
+    class="absolute justify-center h-auto rounded-b-lg top-44 layers">
+    <app-layer-panel (onStaticLayerChange)="handleStaticLayerChange($event)"></app-layer-panel>
+  </div>
+  <div *ngIf="showResultsPanel" id="results-panel"
+    class="absolute left-0 justify-center w-full h-auto px-3 py-4 bottom-2 results drop-shadow">
+    <app-results-panel></app-results-panel>
+  </div>
+</div>

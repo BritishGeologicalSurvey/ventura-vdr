@@ -1,0 +1,12 @@
+mat-accordion {
+  mat-expansion-panel {
+    border: 1px solid #ddd;
+    box-shadow: none !important;
+    margin: 1rem 2rem;
+
+    mat-panel-title {
+      font-size: 18px;
+      font-family: 'Aspekta SemiBold', sans-serif;
+    }
+  }
+}

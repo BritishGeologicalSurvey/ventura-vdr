@@ -1,0 +1,20 @@
+<nav class="relative top-0 left-0 flex items-center justify-around w-full h-20 px-16 header bg-bgs-primary-earth">
+  <div class="w-1/3 left">
+    <img src="/assets/icons/logo.svg" alt="Logo">
+  </div>
+  <div class="flex flex-col items-center justify-center w-1/3 text-center center">
+    <p class="!m-0 font-aspekta-semibold text-white title lg:text-3xl md:text-xl">
+      Prototype Virtual Decision Room
+    </p>
+  </div>
+  <div class="flex justify-end w-1/3 right">
+    <ul class="flex p-0 m-0 list-none justify-items-end">
+      <li *ngFor="let item of menu">
+        <a [id]="item.routerLink.segments" mat-button [routerLink]="item.routerLink | route"
+          class="!text-white no-underline">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

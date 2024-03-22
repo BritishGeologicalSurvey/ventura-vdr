@@ -1,0 +1,65 @@
+<div class="flex flex-row">
+  <div class="flex flex-col h-auto mr-4 bg-white rounded-lg"
+    [ngClass]="activeComparisonItem && activeComparisonItem.display === true ? 'w-9/12' : 'w-full'">
+    <div class="flex items-center justify-between align-middle border-b">
+      <div class="p-3 text-lg text-gray-700 font-aspekta-bold">
+        {{ activeScenario }}
+        ({{ rtLabel }} - {{ rtpLabel }})</div>
+    </div>
+    <div class="flex flex-row">
+      <div class="p-4 text-lg text-gray-600" *ngIf="rtLabel === rt.WATER_QUALITY">
+        <mat-form-field appearance="outline" class="-mb-5">
+          <mat-label>Choose a compound</mat-label>
+          <mat-select [(ngModel)]="selectedCompound" (selectionChange)="handleChange($event)">
+            <mat-option *ngFor="let compound of compoundList" [value]="compound">
+              {{ compound.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="p-3 text-lg text-gray-600">
+        <div *ngIf="rtLabel === rt.WATER_FLOW">
+          <div class="flex flex-col text-sm">
+            <span><span class="font-aspekta-bold">Measurement units:</span> m<sup>3</sup>/s</span>
+            <span><span class="font-aspekta-bold">Description:</span> Water flow values are associated with
+              subcatchments.</span>
+          </div>
+        </div>
+        <div *ngIf="rtLabel === rt.EXCESS_WATER">
+          <div class="flex flex-col text-sm">
+            <span><span class="font-aspekta-bold">Measurement units:</span> m<sup>3</sup>/s</span>
+            <span><span class="font-aspekta-bold">Description:</span> Excess water values are associated with
+              subcatchments.</span>
+          </div>
+        </div>
+        <div *ngIf="rtLabel === rt.WATER_QUALITY">
+          <div class="flex flex-col text-sm">
+            <span>
+              <span class="font-aspekta-bold">Selected Indicator:</span>
+              {{ selectedCompound.name }}
+            </span>
+            <span>
+              <span class="font-aspekta-bold">Measurement units:</span>
+              {{ selectedCompound.units }}
+            </span>
+            <span>
+              <span class="font-aspekta-bold">Description:</span>
+              {{ selectedCompound.description }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center flex-1 w-3/12 bg-white rounded-lg"
+    *ngIf="activeComparisonItem && activeComparisonItem.display === true">
+    <table class="table text-sm border-separate threshold-table">
+      <tbody>
+        <tr class="bg-white" *ngFor="let legend of selectedThresholdLegend">
+          <td class="px-1"><img src="{{legend.icon}}"></td>
+          <td class="px-1">{{legend.text}}</td>
+          <td class="px-1" [innerHTML]="legend.range"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,88 @@
+<table mat-table [dataSource]="sortedData" matSort (matSortChange)="sortData($event)" class="w-full">
+  <ng-container matColumnDef="WB_NAME">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="WB_NAME">
+      <p class="text-xs !mb-1">Subcatchment</p>
+    </mat-header-cell>
+    <mat-cell class="row-title-left" *matCellDef="let element">
+      {{ element.WB_NAME }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Prop_imper">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Prop_imper">
+      <span class="col-name-with-units">
+        <p class="text-xs !mb-1">Impervious Area</p>
+        <p class="text-xs text-bgs-mono-grey-4">m2</p>
+      </span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.Prop_imper }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Green_Spac">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Green_Spac">
+      <span class="col-name-with-units">
+        <p class="text-xs !mb-1">Green Space</p>
+        <p class="text-xs text-bgs-mono-grey-4">0-1</p>
+      </span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.Green_Spac }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Population">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Population">
+      <p class="text-xs !mb-1">Population</p>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ component.round(element.Population) }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Near_term_">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Near_term_">
+      <p class="text-xs !mb-1">Near Term</p>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ component.round(element.Near_term_) }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Far_term_d">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Far_term_d">
+      <p class="text-xs !mb-1">Far Term</p>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ component.round(element.Far_term_d) }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Water_dema">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Water_dema">
+      <span class="col-name-with-units">
+        <p class="text-xs !mb-1">Water Demand</p>
+        <p class="text-xs text-bgs-mono-grey-4">L/pp/day</p>
+      </span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.Water_dema }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Shape__Area">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="Shape__Area">
+      <span class="col-name-with-units">
+        <p class="text-xs !mb-1">Area</p>
+        <p class="text-xs text-bgs-mono-grey-4">km2</p>
+      </span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ component.round(element.Shape__Area / 1000000) }} km&#178;
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>

@@ -1,0 +1,104 @@
+<div class="flex flex-col self-center swiper-container bg-bgs-primary-earth">
+  <swiper-container class="swiper-wrapper" #swiperRef init="false">
+    <swiper-slide class="swiper-slide">
+      <div class="p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          In the first of VDR tool version the model settings will not be editable. Later versions might allow users to
+          change climate change and population change projections.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          After creating a custom scenario you will be able to compare near and far future projections to the situation
+          today or the business as usual scenario.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          You can explore how water flow, excess water and water quality is expected to change in the near and far
+          future.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          Water flow refers to the volume of water that is moving through a particular point or section of a river,
+          stream, or other waterway. It is measured in m3/day.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          The term ‘Excess Water’ is currently conceptualised as that part of fallen precipitation which has not
+          infiltrated into groundwater. In this version of WSIMOD, it is calculated as the sum of stormwater discharge
+          to a subcatchment’s outlet and the surface runoff in the same subcatchment. Climate change can increase the
+          amount of excess water as a result of increased rainfall.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          Water quality refers to the chemical characteristics of water that determine its suitability for specific
+          uses, such as drinking, swimming, or irrigation. The three indicators for water quality are ammonia,
+          phosphorous and nitrogen.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          This VDR tool allows you to view business as usual scenarios and explore how changes to new developments and
+          retrofitting will affect the water network in Manchester and its various catchments.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          The VDR is coupled to systems model (WSIMod) that creates simultaneous estimates of the water discharges to
+          sewerage infrastructure and natural watercourses.
+        </p>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="swiper-slide">
+      <div class="relative p-5 m-5">
+        <p class="px-5 text-xl text-gray-100 font-aspekta">
+          This Virtual Decision Room (VDR) tool has been developed through VENTURA, an interdisciplinary team of
+          systems
+          thinking and digital geoscience researchers from University College London
+          (UCL), British Geological Survey (BGS) and Imperial College London (ICL).
+        </p>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <div class="swiper-pagination"></div>
+</div>
+<div class="flex flex-col items-center justify-center w-full h-20 bg-bgs-primary-earth">
+  <div *ngIf="!resultsComplete" class="text-sm text-white loading">
+    <p class="text-base">
+      Calculating results
+      <span class="dot-one">.</span>
+      <span class="dot-two">.</span>
+      <span class="dot-three">.</span>
+    </p>
+  </div>
+
+  <button *ngIf="resultsComplete" mat-flat-button color="accent" class=" !text-white w-60 my-2" (click)="viewResults()">
+    View Results
+  </button>
+</div>

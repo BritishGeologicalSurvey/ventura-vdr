@@ -1,0 +1,27 @@
+<div class="flex flex-col items-center justify-center w-full rounded">
+  <div class="flex justify-center w-full p-2">
+    <p *ngIf="currentStage !== ''" class="text-xl text-bgs-primary-earth !mb-0 text-center font-aspekta-semibold">
+      {{ scenarioTitle }}
+    </p>
+  </div>
+
+  <ng-container *ngIf="currentStage === ''">
+    <app-stage-default [options]="options" (defaultComplete)="handleDefaultComplete($event)"
+      class="w-full"></app-stage-default>
+  </ng-container>
+
+  <ng-container *ngIf="currentStage === 'select'">
+    <app-stage-select [noOfCatchments]="noOfCatchments" (selectComplete)="handleSelectComplete($event)"
+      (selectCancel)="cancelNewScenario($event)"></app-stage-select>
+  </ng-container>
+
+  <ng-container *ngIf="currentStage === 'edit'">
+    <app-stage-edit [noOfCatchments]="noOfCatchments" (editComplete)="handleEditComplete($event)"
+      (editCancel)="cancelNewScenario($event)"></app-stage-edit>
+  </ng-container>
+
+  <ng-container *ngIf="currentStage === 'review'">
+    <app-stage-review [noOfCatchments]="noOfCatchments" (reviewComplete)="handleReviewComplete($event)"
+      (reviewAddMore)="addMoreSubcatchmentGroups($event)" (reviewCancel)="cancelNewScenario($event)"></app-stage-review>
+  </ng-container>
+</div>

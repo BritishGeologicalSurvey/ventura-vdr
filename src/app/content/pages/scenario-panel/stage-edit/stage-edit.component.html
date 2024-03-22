@@ -1,0 +1,123 @@
+<div class="p-2 mt-2 border-t-8 border-bgs-primary-earth">
+  <p class="text-xl font-medium text-bgs-primary-earth font-aspekta-semibold">
+    Edit selected catchment(s)
+  </p>
+  <hr>
+  <form class="mt-3" [formGroup]="editForm">
+
+    <span class="text-lg text-bgs-primary-earth font-aspekta-semibold">New Developments</span>
+
+    <a mat-button (click)="openLearnAboutItemDialog(true);" class="learn-more-button"><mat-icon
+        class="learn-more-button-icon" fontIcon="info"></mat-icon>Learn more</a>
+    <table mat-table [dataSource]="newDevelopmentsSource" class="w-full !table-fixed edit-form mb-6">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <td mat-cell *matCellDef="let element" class="row-title-left !p-0" [hidden]="true">
+          {{ element.id }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <td mat-cell *matCellDef="let element" class="row-title-left !p-0">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <!-- New Value Column -->
+      <ng-container matColumnDef="newVal">
+        <td mat-cell *matCellDef="let element" class="!py-0 row-title-left">
+          <ng-container>
+            <input matInput [id]="element.id" [name]="element.id" [formControlName]="element.id"
+              class="w-full p-1 border border-gray-200 rounded-sm" type="number" [step]="validation[element.id]['step']"
+              [min]="validation[element.id].min!" [max]="validation[element.id].max!">
+            <app-form-errors [ctrl]="editForm.get(element.id)"></app-form-errors>
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: newDevelopmentsCols;"></tr>
+    </table>
+
+
+    <span class="text-lg text-bgs-primary-earth font-aspekta-semibold">Subcatchment Characteristics</span>
+
+    <table mat-table [dataSource]="subcatchmentCharacteristicsSource" class="w-full !table-fixed edit-form mb-6">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <td mat-cell *matCellDef="let element" class="row-title-left !p-0" [hidden]="true">
+          {{ element.id }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <td mat-cell *matCellDef="let element" class="row-title-left !p-0">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <!-- New Value Column -->
+      <ng-container matColumnDef="newVal">
+        <td mat-cell *matCellDef="let element" class="!py-0 row-title-left">
+          <input *ngIf="element.id === 'retrofitRC'" matInput [id]="element.id" [name]="element.id"
+            [formControlName]="element.id" class="w-full p-1 border border-gray-200 rounded-sm" type="number"
+            [min]="validation[element.id].min!" [max]="validation[element.id].max!"
+            [step]="validation[element.id]['step']">
+
+          <mat-slide-toggle *ngIf="element.id === 'toggleRetrofitRC'" [formControlName]="element.id"
+            color="primary"></mat-slide-toggle>
+          <app-form-errors [ctrl]="editForm.get(element.id)"></app-form-errors>
+        </td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: subcatchmentCharacteristicsCols;"></tr>
+    </table>
+
+
+    <span class="text-lg text-bgs-primary-earth font-aspekta-semibold">Retrofit</span>
+
+    <a mat-button (click)="openLearnAboutItemDialog(false);" class="learn-more-button"><mat-icon
+        class="learn-more-button-icon" fontIcon="info"></mat-icon>Learn more</a>
+    <table mat-table [dataSource]="retrofitSource" class="w-full !table-fixed edit-form">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <td mat-cell *matCellDef="let element" class="row-title-left !p-0" [hidden]="true">
+          {{ element.id }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <td mat-cell *matCellDef="let element" class="row-title-left !p-0">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <!-- New Value Column -->
+      <ng-container matColumnDef="newVal">
+        <td mat-cell *matCellDef="let element" class="!py-0 row-title-left">
+          <input matInput [id]="element.id" [name]="element.id" [formControlName]="element.id"
+            class="w-full p-1 border border-gray-200 rounded-sm" type="number" [min]="validation[element.id].min!"
+            [max]="validation[element.id].max!" [step]="validation[element.id]['step']">
+          <app-form-errors [ctrl]="editForm.get(element.id)"></app-form-errors>
+        </td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: retrofitCols;"></tr>
+    </table>
+  </form>
+
+  <div class="flex items-center justify-start w-auto h-4 p-4 mt-4 text-white rounded-sm bg-bgs-primary-stone">
+    Editing {{ noOfCatchments }} subcatchments
+  </div>
+  <div class="flex w-full mt-6">
+    <button mat-stroked-button class="!rounded-none w-full" (click)="cancelNewScenario()">
+      Cancel
+    </button>
+    <button mat-flat-button color="primary" class="!rounded-none w-full" (click)="handleReview()"
+      [disabled]="!editForm.valid">
+      Continue
+    </button>
+  </div>
+</div>

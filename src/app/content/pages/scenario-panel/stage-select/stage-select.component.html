@@ -1,0 +1,43 @@
+<div class="p-2 mt-1 border-t-8 border-primary-earth">
+  <p class="!mb-1 text-xl font-aspekta-semibold text-bgs-primary-earth !mt-4">
+    Select Catchments
+  </p>
+  <p class="mt-2 text-base text-black">
+    Using the map, select the subcatchments that you wish to edit.
+  </p>
+  <mat-accordion>
+    <mat-expansion-panel class="!mt-8">
+      <mat-expansion-panel-header class="bg-bgs-primary-stone !hover:bg-bgs-primary-stone !h-4 !p-4 expansion-custom">
+        <mat-panel-title class="!text-white">
+          {{ noOfCatchments }} subcatchments selected
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-container *ngIf="groupsPresent()">
+        <div *ngFor="let item of catchmentGroups | keyvalue" class="mt-4">
+          <p class="text-base">
+            Group {{ item.key }}
+          </p>
+          <ul class="ml-5 list-disc">
+            <li *ngFor="let subcatchment of item.value; let i = index;" class="my-1 text-sm">
+              {{ subcatchment.WB_NAME }}
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!groupsPresent()">
+        Selected catchments will be listed here.
+      </ng-container>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="flex w-full mt-6">
+    <button mat-stroked-button class="!rounded-none w-full" (click)="cancelNewScenario()">
+      Cancel
+    </button>
+    <button mat-flat-button color="primary" class="!rounded-none w-full" (click)="handleContinue()"
+      [disabled]="noOfCatchments === 0">
+      Continue
+    </button>
+  </div>
+</div>

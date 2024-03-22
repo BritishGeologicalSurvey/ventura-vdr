@@ -1,0 +1,49 @@
+<mat-table [dataSource]="dataSource" class="w-full">
+  <ng-container matColumnDef="blank">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element" class="border-r-2">
+      <span class="font-aspekta-semibold">
+        Today
+      </span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="totalArea">
+    <mat-header-cell *matHeaderCellDef>
+      Total Area
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.totalArea }} km&#178;
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="population">
+    <mat-header-cell *matHeaderCellDef>
+      Population
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.population }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="populationNear">
+    <mat-header-cell *matHeaderCellDef>
+      Population Near Future
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.populationNear }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="populationFar">
+    <mat-header-cell *matHeaderCellDef>
+      Population Far Future
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.populationFar }}
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

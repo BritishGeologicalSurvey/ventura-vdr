@@ -1,0 +1,51 @@
+<div class="p-[75px]">
+  <div class="flex flex-col w-full">
+    <div class="text-wrapper max-w-[1000px]">
+      <h1 class="!text-5xl !font-aspekta-bold !mb-8 !leading-normal">Systems Thinking based Causal Loop Diagram</h1>
+      <p class="!mt-4 text-base text-bgs-mono-grey-4">
+        In parallel to integrated water management simulations by the
+        semi-distributed hydrological model, we used
+        systems thinking to understand the challenges and opportunities of water governance and management. Results are
+        summarised in a causal loop diagram co-developed with stakeholders from the Great Manchester Combined Authority
+        (GMCA), Environment Agency (EA), and United Utilities (UU). We engaged these stakeholders in a series of
+        interviews and group model building workshops throughout 2022.
+      </p>
+      <p class="text-base !font-aspekta-semibold !mt-4">
+        The Causal Loop Diagram includes three key components:
+      </p>
+      <ul class="list-disc !my-6 !pl-6">
+        <li class="mb-1 text-base text-bgs-mono-grey-4">
+          The illustration of water flows and water neutrality
+        </li>
+        <li class="mb-1 text-base text-bgs-mono-grey-4">
+          The impact of urban developments and climate change, and risks of
+          system failures
+        </li>
+        <li class="mb-1 text-base text-bgs-mono-grey-4">
+          The illustration of why digital tools (such as VDRs) can support a shift to better decision-making on water
+          governance and management
+        </li>
+      </ul>
+      <p class="text-base text-bgs-mono-grey-4 !mt-4">
+        Overall, the causal loop diagram shows how the Virtual Decision Room (VDR) can best support the decision-making
+        process. In the following slides, we unfold the model and walk you through its components and resulting systems
+        thinking insights.
+      </p>
+    </div>
+    <div class="flex items-center w-full my-12 stage" *ngFor="let stage of stages">
+      <div class="w-1/3 left">
+        <h2 class="!text-3xl !font-aspekta-semibold">
+          {{ stage.title }}
+        </h2>
+        <ul class="list-none">
+          <li *ngFor="let item of stage.text" class="!mb-2 text-base text-bgs-mono-grey-4">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <div class="w-2/3 pl-24 right">
+        <img [src]="component.transformImgUrl(stage.imgUrl)" alt="Graph image">
+      </div>
+    </div>
+  </div>
+</div>

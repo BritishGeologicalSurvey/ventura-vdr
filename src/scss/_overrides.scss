@@ -1,0 +1,74 @@
+/* stylelint-disable selector-class-pattern */
+@import '../scss/colours';
+
+.mat-expansion-panel-header {
+  &.expansion-custom {
+    &.mat-expanded {
+      &:focus {
+        background: $bgs-primary-stone;
+      }
+
+      &:hover {
+        background: $bgs-primary-stone;
+      }
+    }
+  }
+}
+
+.mat-expansion-panel {
+  &:not(.mat-expanded) {
+    .mat-expansion-panel-header {
+      &.expansion-custom {
+        &:hover {
+          &:not([aria-disabled='true']) {
+            background: $bgs-primary-stone;
+          }
+        }
+
+        &.mat-expanded {
+          &:focus {
+            background: $bgs-primary-stone;
+          }
+        }
+
+        &.mat-expanded:hover {
+          background: $bgs-primary-stone;
+        }
+      }
+    }
+  }
+}
+
+mat-accordion {
+  .mat-expansion-panel-body {
+    padding: 1rem 2rem !important;
+  }
+
+  &.layer-controls {
+    .mat-expansion-panel-body {
+      padding: 0 1.25rem !important;
+    }
+  }
+}
+
+.mat-expansion-panel-header-description,
+.mat-expansion-indicator::after {
+  color: #525252;
+  border-color: #525252;
+}
+
+.mat-mdc-tab {
+  .mdc-tab__text-label {
+    font-family: 'Aspekta Bold', system-ui, sans-serif;
+    font-weight: initial;
+  }
+
+  &:not(.mat-mdc-tab-disabled) {
+    &.mdc-tab--active {
+      .mdc-tab__text-label {
+        font-family: 'Aspekta Bold', system-ui, sans-serif;
+        font-weight: initial;
+      }
+    }
+  }
+}

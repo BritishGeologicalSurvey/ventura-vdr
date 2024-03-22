@@ -1,0 +1,33 @@
+@import '../scss/colours';
+
+.mat-horizontal-content-container {
+  display: none;
+}
+
+.mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+
+.mat-step-label {
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+}
+
+.mat-step-label-selected {
+  font-family: 'Aspekta Bold', sans-serif !important;
+}
+
+.mat-step-icon {
+  height: 30px !important;
+  width: 30px !important;
+  background-color: $bgs-primary-stone !important;
+
+  &-selected {
+    background-color: $bgs-primary-earth !important;
+  }
+}
+
+.mat-stepper-horizontal-line {
+  border-top-width: 2px !important;
+  border-top-style: solid !important;
+}
