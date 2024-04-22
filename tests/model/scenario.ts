@@ -18,33 +18,24 @@ export class Scenario {
 
   public async selectCatchments() {
     await this.page.waitForSelector('canvas');
-    await this.page
-      .locator('canvas')
-      .nth(1)
-      .click({
-        position: {
-          x: 561,
-          y: 337,
-        },
-      });
-    await this.page
-      .locator('canvas')
-      .nth(1)
-      .click({
-        position: {
-          x: 585,
-          y: 478,
-        },
-      });
-    await this.page
-      .locator('canvas')
-      .nth(1)
-      .click({
-        position: {
-          x: 685,
-          y: 456,
-        },
-      });
+    await this.page.locator('canvas').click({
+      position: {
+        x: 561,
+        y: 337,
+      },
+    });
+    await this.page.locator('canvas').click({
+      position: {
+        x: 585,
+        y: 478,
+      },
+    });
+    await this.page.locator('canvas').click({
+      position: {
+        x: 685,
+        y: 456,
+      },
+    });
     await this.page.getByRole('button', { name: 'Continue' }).click();
   }
 
