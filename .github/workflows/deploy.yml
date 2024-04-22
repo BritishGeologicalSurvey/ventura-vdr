@@ -27,6 +27,8 @@ jobs:
         run: pnpm install
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+      - name: Start local server
+        run: pnpm run start
       - name: Run playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v4
@@ -36,6 +38,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
   build:
+    needs: test
     runs-on: ubuntu-latest
     strategy:
       matrix:
